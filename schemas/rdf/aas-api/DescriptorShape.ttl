@@ -1,0 +1,145 @@
+@prefix aas-api: <https://admin-shell.io/aas/API/1/0/RC01/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/RC01/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#Metadata
+<https://admin-shell.io/aas/API/1/0/RC01/> a owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports sh: ;
+  sh:declare [
+    a sh:PrefixDeclaration ;
+    sh:namespace "https://admin-shell.io/aas/API/1/0/RC01/"^^xsd:anyURI ;
+    sh:prefix "aas-api"^^xsd:string ;
+  ] ;
+.
+
+aas-api:AssetAdministrationShellDescriptorShape a sh:NodeShape ;
+  sh:targetClass aas-api: AssetAdministrationShellDescriptor ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/administration> ;
+    sh:class aas:AdministrativeInformation ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "(AssetAdministrationShellDescriptor.administration):Only one <i>administration</i> pointing to a <i>AdministrativeInformation</i> is allowed."^^xsd:string ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/description> ;
+    sh:datatype rdf:langString ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "(AssetAdministrationShellDescriptor.description):Only one value for <i>description</i> is allowed."^^xsd:string ;
+  ] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/globalAssetId> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AssetAdministrationShellDescriptor.globalAssetId):Only one <i>globalAssetId</i> attribute having a <i>reference</i> entity is required."^^xsd:string ;
+  ] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/specificAssetId> ;
+      sh:class aas:IdentifierKeyValuePair ;
+      sh:message "(AssetAdministrationShellDescriptor.specificAssetId):A <i>specificAssetId</i> must point to a <i>IdentifierKeyValuePair</i>."^^xsd:string ;
+  ] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/endpoint> ;
+      sh:class xsd:anyURI ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AssetAdministrationShellDescriptor.endpoint):Only one value for <i>endponit</i> is allowed."^^xsd:string ;
+  ] ;
+
+ sh:property [
+	  a sh:PropertyShape ;
+	  sh:path <https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/idShort> ;
+      sh:class xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AssetAdministrationShellDescriptor.idShort):Only one value for <i>idShort</i> is allowed."^^xsd:string ;
+  ] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/AssetAdministrationShellDescriptor/1/0/RC01/identification> ;
+      sh:class aas:Identifier ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(AssetAdministrationShellDescriptor.identification):A <i>identification</i> attribute must link to exactly one <i>Identifier</i>."^^xsd:string ;
+  ] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/AssetAdministrationShellDescriptor/1/0/RC01/submodelDescriptor> ;
+      sh:class aas-api:SubmodelDescriptor ;
+      sh:message "(AssetAdministrationShellDescriptor.submodelDescriptor):A <i>submodelDescriptor</i> must point to a <i>SubmodelDescriptor</i>."^^xsd:string ;
+  ] ;
+.
+
+
+
+aas-api:SubmodelDescriptorShape a sh:NodeShape ;
+    sh:targetClass aas-api: SubmodelDescriptor ;
+    sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/administration> ;
+      sh:class aas:AdministrativeInformation ;
+      sh:minCount 0 ;
+      sh:maxCount 1 ;
+      sh:message "(SubmodelDescriptor.administration):Only one <i>administration</i> pointing to a <i>AdministrativeInformation</i> is allowed."^^xsd:string ;
+    ] ;
+
+    sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/description> ;
+      sh:datatype rdf:langString ;
+      sh:minCount 0 ;
+      sh:maxCount 1 ;
+      sh:message "(SubmodelDescriptor.description):Only one value for <i>description</i> is allowed."^^xsd:string ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/endpoint> ;
+        sh:class xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        sh:message "(SubmodelDescriptor.endpoint):Only one value for <i>endponit</i> is allowed."^^xsd:string ;
+    ] ;
+    sh:property [
+	  a sh:PropertyShape ;
+	  sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/idShort> ;
+      sh:class xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(SubmodelDescriptor.idShort):Only one value for <i>idShort</i> is allowed."^^xsd:string ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/identification> ;
+        sh:class aas:Identifier ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:message "(SubmodelDescriptor.identification):A <i>identification</i> attribute must link to exactly one <i>Identifier</i>."^^xsd:string ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/semanticId> ;
+        sh:class aas:Reference ;
+        sh:maxCount 1 ;
+        sh:minCount 0 ;
+        sh:message "(SubmodelDescriptor.identification):Only one <i>semanticId</i> attribute having a <i>reference</i> entity is required.."^^xsd:string ;
+    ] ;
+.

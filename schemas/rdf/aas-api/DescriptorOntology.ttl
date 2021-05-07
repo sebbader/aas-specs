@@ -1,0 +1,143 @@
+@prefix aas-api: <https://admin-shell.io/aas/API/1/0/RC01/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/RC01/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@base <https://admin-shell.io/aas/API/1/0/RC01/> .
+
+<https://admin-shell.io/aas/API/1/0/RC01/> rdf:type owl:Ontology ;
+    vann:preferredNamespaceUri "https://admin-shell.io/aas/API/1/0/RC01/"^^xsd:anyURI ;
+    owl:versionInfo "1.0.RC01" ;
+    rdfs:comment "This ontology represents the data model for the Asset Administration Shell and Submodel Descriptor according to the specification 'Details of the Asset Administration Shell - Part 2 - Version 1.0.RC01'."@en ;
+    skos:prefLabel "aas-api"^^xsd:string ;
+    vann:preferredNamespacePrefix "aas-api"^^xsd:string ;
+    rdfs:isDefinedBy <https://admin-shell.io/aas/API/1/0/RC01/> ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor
+aas-api:AssetAdministrationShellDescriptor rdf:type owl:Class ;
+    rdfs:comment "Descriptor of an Asset Administration Shell."@en ;
+    rdfs:label "Asset Administration Shell Descriptor"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/administration
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/administration> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Administrative information of the Asset Administration Shell."@en ;
+    rdfs:label "has administration of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range aas:AdministrativeInformation ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/description
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/description> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Description or comments on the Asset Administration Shell."@en ;
+    rdfs:label "has description of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range rdf:langString ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/globalAssetId
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/globalAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing."@en ;
+    rdfs:label "has global asset id of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range aas:Reference ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/specificAssetId
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/specificAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Specific asset identifier."@en ;
+    rdfs:label "has specific asset id of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range aas:IdentifierKeyValuePair ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/endpoint
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/endpoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Endpoint of the Asset Administration Shell."@en ;
+    rdfs:label "has endpoint of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range xsd:anyURI ;   ### The type of AssetAdministrationShellDescriptor/endpoint is Endpoint, there is no Endpoint class/instance in meatamodel. Which means, I cannot formulate Endpoint as aas:Endpoint, missing namespace for Endpoint. So, I replace this by "xsd:anyURI" for now.
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/idShort
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/idShort> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Short name of the Asset Administration Shell."@en ;
+    rdfs:label "has id short of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/identification
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/identification> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Globally unique identification of the Asset Administration Shell."@en ;
+    rdfs:label "has identification of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range aas:Identifier ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/submodelDescriptor
+<https://admin-shell.io/aas/API/1/0/RC01/AssetAdministrationShellDescriptor/submodelDescriptor> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Descriptor of a submodel of the Asset Administration Shell."@en ;
+    rdfs:label "has submodel descriptor of Asset Administration Shell Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:AssetAdministrationShellDescriptor ;
+    rdfs:range aas-api:SubmodelDescriptor ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor
+aas-api:SubmodelDescriptor rdf:type owl:Class ;
+    rdfs:comment "A descriptor of a submodel."@en ;
+    rdfs:label "Submodel Descriptor"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/administration
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/administration> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Administrative information of the Submodel."@en ;
+    rdfs:label "has administration of Submodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodellDescriptor ;
+    rdfs:range aas:AdministrativeInformation ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/description
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/description> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Description or comments on the Submodel."@en ;
+    rdfs:label "has description of Submodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodelDescriptor ;
+    rdfs:range rdf:langString ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/endpoint
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/endpoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Endpoint of the Submodel."@en ;
+    rdfs:label "has endpoint of Submodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodelDescriptor ;
+    rdfs:range xsd:anyURI ;   ### The type of SubmodelDescriptor/endpoint is Endpoint, there is no Endpoint class/instance in meatamodel. Which means, I cannot formulate Endpoint as aas:Endpoint, missing namespace for Endpoint. So, I replace this by "xsd:anyURI" for now.
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/idShort
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/idShort> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Short name of the Submodel."@en ;
+    rdfs:label "has id short of Submodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodelDescriptor ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/identification
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/identification> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Globally unique identification of the Submodel."@en ;
+    rdfs:label "has identification of Submodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodelDescriptor ;
+    rdfs:range aas:Identifier ;
+.
+
+###  https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/semanticId
+<https://admin-shell.io/aas/API/1/0/RC01/SubmodelDescriptor/semanticId> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Identifier of the semantic definition of the Submodel."@en ;
+    rdfs:label "has semantic id ofSubmodel Descriptor"^^xsd:string ;
+    rdfs:domain aas-api:SubmodelDescriptor ;
+    rdfs:range aas:Reference ;
+.
