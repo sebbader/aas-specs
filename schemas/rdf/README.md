@@ -17,7 +17,7 @@ shacl shapes in shacl-schema.ttl. Only when they satisfy the conditions, these R
 Here stores the examples for AAS metamodel, including how to describe an Asset Administraion Shell, an Asset, a Submodel and etc. These examples are the same with the ones 
 in Asset Administration Shell Specification.
 
-## aas-api
+## descriptors used for the AAS Registry API
 
 In this sub-folder, it contains the Ontology, Shacl Shapes descrbing how information can be exchanged via Application Programming Interfaces. 
 
