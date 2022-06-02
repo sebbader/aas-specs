@@ -924,18 +924,18 @@ aas:ReferenceElementShape a sh:NodeShape ;
 aas:RelationshipElementShape a sh:NodeShape ;
     sh:targetClass aas:RelationshipElement ;
     rdfs:subClassOf aas:SubmodelElementShape ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "(RelationshipElementShape): An aas:RelationshipElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-        sh:prefixes aas: ;
-        sh:select """
-            SELECT ?this ?type
-            WHERE {
-                ?this rdf:type ?type .
-                FILTER (?type = aas:RelationshipElement)
-            }
-        """ ;
-    ] ;
+#    sh:sparql [
+#        a sh:SPARQLConstraint ;
+#        sh:message "(RelationshipElementShape): An aas:RelationshipElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+#        sh:prefixes aas: ;
+#        sh:select """
+#            SELECT ?this ?type
+#            WHERE {
+#                ?this rdf:type ?type .
+#                FILTER (?type = aas:RelationshipElement)
+#            }
+#        """ ;
+#    ] ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC02/RelationshipElement/first> ;
